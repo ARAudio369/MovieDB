@@ -42,11 +42,11 @@ Examples:
 
 ---
 
-## Dimension: dim_studio
+## Dimension: dim_production_company
 
 Purpose:
 Stores production companies.
-Notes: Multiple studios/production houses?
+Notes: Multiple studios/production houses (Late Night With The Devil)
 
 ---
 
@@ -54,7 +54,7 @@ Notes: Multiple studios/production houses?
 
 Purpose:
 Stores production countries.
-Note: Multiple production countries?
+Note: Multiple production countries 
 
 ---
 
@@ -62,11 +62,11 @@ Note: Multiple production countries?
 
 Purpose:
 Stores production language.
-Note: Multiple languages spoken? 
+Note: Multiple languages spoken (Return to Soeul)
 
 ---
 
-## Fact: fact_movie_rating
+## Fact: fact_movie
 
 Purpose:
 Stores aggregated movie metrics.
@@ -79,17 +79,53 @@ Measures:
 
 ---
 
+# Bridge Tables
+
+## bridge_movie_genre
+
+Purpose:
+Resolves the many-to-many relationship between movies and genres.
+
+---
+
+## bridge_movie_company
+
+Purpose:
+Resolves the many-to-many relationship between movies and production companies.
+
+---
+
+## bridge_movie_country
+
+Purpose:
+Resolves the many-to-many relationship between movies and production countries.
+
+---
+
+## bridge_movie_language
+
+Purpose:
+Resolves the many-to-many relationship between movies and spoken languages.
+
 ## Relationships
 
-dim_movie
-    |
-    |
-fact_movie_rating
+                         dim_genre
+                             |
+                             |
+                    bridge_movie_genre
+                             |
+                             |
+dim_country ---- bridge_movie_country ---- dim_movie ---- fact_movie
+                             |
+                             |
+                    bridge_movie_language
+                             |
+                             |
+                       dim_language
 
-dim_movie
-    |
-    |
-bridge_movie_genre
-    |
-    |
-dim_genre
+                             |
+                             |
+                 bridge_movie_company
+                             |
+                             |
+              dim_production_company

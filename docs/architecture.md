@@ -14,7 +14,7 @@ Python Extraction Pipeline
 ↓
 Azure Data Lake Storage Gen2 (Bronze)
 ↓
-Azure SQL Database (Silver)
+Azure SQL Database (Silver) (Or 'TE'/'Trusted Entity' layer)
 ↓
 dbt Transformations
 ↓
