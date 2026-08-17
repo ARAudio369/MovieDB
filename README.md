@@ -1,43 +1,50 @@
 # MovieDB - Azure Analytics Engineering Project
 
-## Overview
+## Project Architecture
 
-MovieDB is an end-to-end analytics engineering project that ingests movie metadata from The Movie Database (TMDb) API, stores raw source data within Azure, transforms data using dbt, and produces an analytical dimensional model for reporting and insights.
+The platform follows a **Medallion Architecture** pattern, separating data processing into Bronze, Silver, and Gold layers.
 
-## Objectives
+## Bronze Layer
 
-The goal of this project is to design and implement an alaytics dataset based of a tmdb database that makes use of newer cloud technologies as a self-development project.
+Raw TMDb API responses are extracted using Python and stored in **Azure Data Lake Storage Gen2 (ADLS Gen2)** as JSON files.
 
-Key objectives:
+This layer remains **untransformed** and acts as the raw source of truth, preserving the original API response for reproducibility and potential reprocessing.
 
-- Build an automated ingestion pipeline from the TMDb API
-- Store raw source data using Azure cloud services
-- Implement a Medallion Architecture approach
-- Apply Kimball dimensional modelling principles
-- Use dbt to manage SQL transformations, testing, and documentation
-- Create a reporting-ready data model for analytical insights
-- Demonstrate version control and software engineering practices using GitHub
+## Silver Layer
 
+Data from the Bronze layer is loaded and transformed using **PySpark**.
 
+The data is cleaned, validated, structured, and converted from JSON into **Parquet**, providing a columnar and compressed storage format designed to reduce storage requirements and improve read efficiency for analytical workloads.
 
+The resulting Parquet datasets are stored back in **Azure Data Lake Storage Gen2**, within the Silver layer.
 
+## Gold Layer
 
-## Architecture
+The curated Silver data is loaded into **Azure SQL Database**, where **dbt transformations** are used to create analytical models following **Kimball dimensional modelling principles**.
 
-The platform follows a Medallion Architecture pattern, separating data processing into Bronze, Silver, and Gold layers.
+These models are designed around reporting and business intelligence requirements and are ultimately consumed through **Power BI**.
 
-### Bronze Layer
+## Summarised Data Flow
 
-Raw TMDb API responses are stored in Azure Data Lake Storage Gen2 as JSON files. This layer is left un-transformed as a source of truth.
-
-### Silver Layer
-
-Raw data from tge Bronze Layer is loaded into Azure SQL Database where it is cleaned, validated, and built into structured datasets.
-
-### Gold Layer
-
-Here, dbt transformations are used to create analytical models following Kimball dimensional modelling principles. These models are designed with reporting and business intelligence in mind and would then be consumed via Power BI.
-
-### Summaried Data Flow
-
-TMDb API → Python Extraction → Azure Data Lake Storage → Azure SQL Database → dbt → Power BI
+```text
+TMDb API
+   ↓
+Python Extraction
+   ↓
+Azure Data Lake Storage Gen2
+   │
+   └── Bronze → Raw JSON
+          ↓
+       PySpark
+          ↓
+Azure Data Lake Storage Gen2
+   │
+   └── Silver → Transformed Parquet
+          ↓
+Azure SQL Database
+          ↓
+         dbt
+          ↓
+Kimball Dimensional Models
+          ↓
+       Power BI
