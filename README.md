@@ -6,7 +6,7 @@ The platform follows a **Medallion Architecture** pattern, separating data proce
 
 ## Bronze Layer
 
-Raw TMDb API responses are extracted using Python and stored in **Azure Data Lake Storage Gen2 (ADLS Gen2)** as JSON files.
+Raw TMDb API responses are extracted using Python and stored in **Azure Data Lake Storage (ADLS) Gen2** as JSON files.
 
 This layer remains **untransformed** and acts as the raw source of truth, preserving the original API response for reproducibility and potential reprocessing.
 
