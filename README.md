@@ -12,7 +12,7 @@ This layer remains **untransformed** and acts as the raw source of truth, preser
 
 ## Silver Layer
 
-Data from the Bronze layer is loaded and transformed using **PySpark**.
+Data from the Bronze layer is loaded and transformed using **PySpark within Databricks**
 
 The data is cleaned, validated, structured, and converted from JSON into **Parquet**, providing a columnar and compressed storage format designed to reduce storage requirements and improve read efficiency for analytical workloads.
 
