@@ -1,0 +1,23 @@
+version 2:
+
+models:
+  - name: stg_movie_genres
+    description: "Staged movie genre data sourced from the silver layer. BK is movie_id + genre_id"
+
+    columns: 
+      - name: movie_id
+        description: "Relates to movie_id from silver_movies"
+        data_tests:
+          - not_null
+      
+      - name: genre_id
+        description: "genre id per movie"
+        data_tests: 
+          - not_null
+
+      - name: genre_name
+        description: "genre name per movie"
+        data tests:
+          - not_null
+          
+

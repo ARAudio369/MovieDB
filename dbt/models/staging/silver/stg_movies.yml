@@ -1,0 +1,19 @@
+version 2:
+
+models:
+  - name: stg_movies
+    description: "Staged movie data sourced from the silver layer"
+
+    columns: 
+      - name: movie_id
+        description: "Unique identifier per movie"
+        data_tests:
+          - not_null
+          - unique
+      
+      - name: title
+        description: "Title of the movie"
+        data_tests: 
+          - not_null
+          
+

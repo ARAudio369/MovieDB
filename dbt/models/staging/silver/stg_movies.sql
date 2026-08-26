@@ -1,0 +1,23 @@
+SELECT
+    id AS movie_id,
+    title,
+    original_title,
+    overview,
+    original_language,
+    release_date,
+    status,
+    runtime,
+    budget,
+    revenue,
+    popularity,
+    vote_average,
+    vote_count,
+    adult AS adult_flag,
+    video AS video_flag,
+    homepage,
+    imdb_id,
+    poster_path,
+    backdrop_path,
+    tagline,
+    belongs_to_collection
+FROM {{ source('silver', 'silver_movies') }}
