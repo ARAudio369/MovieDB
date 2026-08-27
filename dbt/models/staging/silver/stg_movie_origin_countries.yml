@@ -1,0 +1,16 @@
+models:
+  - name: stg_movie_origin_countries
+    description: "Staged movie origin countru data sourced from the silver layer"
+
+    columns: 
+      - name: movie_id
+        description: "Unique identifier per movie"
+        data_tests:
+          - not_null
+      
+      - name: origin_country
+        description: "Country of origin for the movie - can be multiple"
+        data_tests: 
+          - not_null
+          
+

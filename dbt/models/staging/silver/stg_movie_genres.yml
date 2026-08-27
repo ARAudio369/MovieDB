@@ -1,5 +1,3 @@
-version 2:
-
 models:
   - name: stg_movie_genres
     description: "Staged movie genre data sourced from the silver layer. BK is movie_id + genre_id"

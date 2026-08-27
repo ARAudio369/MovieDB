@@ -1,0 +1,23 @@
+models:
+  - name: stg_movie_production_companies
+    description: "Staged movie production company data sourced from the silver layer"
+
+    columns: 
+      - name: movie_id
+        description: "Unique identifier per movie"
+        data_tests:
+          - not_null
+      
+      - name: production_company_id
+        description: "Unique identifier per production company"
+        data_tests: 
+          - not_null
+      
+      - name: production_company_name
+        description: "Name of the production company"
+        data_tests: 
+          - not_null
+
+
+          
+

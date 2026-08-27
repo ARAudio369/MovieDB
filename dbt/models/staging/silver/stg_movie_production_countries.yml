@@ -1,0 +1,23 @@
+models:
+  - name: stg_movie_production_countries
+    description: "Staged movie production country data sourced from the silver layer"
+
+    columns: 
+      - name: movie_id
+        description: "Unique identifier per movie"
+        data_tests:
+          - not_null
+      
+      - name: production_country_code
+        description: "Production country code per movie"
+        data_tests: 
+          - not_null
+      
+      - name: production_country_name
+        description: "Full name of production country"
+        data_tests: 
+          - not_null
+
+
+          
+

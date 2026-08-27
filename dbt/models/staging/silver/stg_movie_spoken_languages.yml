@@ -1,0 +1,23 @@
+models:
+  - name: stg_movie_spoken_languages
+    description: "Staged movie spoken language data sourced from the silver layer"
+
+    columns: 
+      - name: movie_id
+        description: "Unique identifier per movie"
+        data_tests:
+          - not_null
+      
+      - name: spoken_language_english_name
+        description: "English name of the spoken language"
+        data_tests: 
+          - not_null
+      
+      - name: spoken_language_country_code
+        description: "Country code of the spoken language"
+        data_tests: 
+          - not_null
+
+
+          
+
