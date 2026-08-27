@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: silver
+    catalog: moviedb_databricks_7405617893695861
+    schema: default
+    tables:
+      - name: silver_movies
+      - name: silver_movie_genres
+      - name: silver_movie_origin_countries
+      - name: silver_movie_production_companies
+      - name: silver_movie_production_countries
+      - name: silver_movie_spoken_languages
