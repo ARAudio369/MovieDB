@@ -1,23 +1,21 @@
 models:
-  - name: stg_movie_spoken_languages
-    description: "Staged movie spoken language data sourced from the silver layer"
+  - name: gold_dim_language
+    description: "Language dimension containing unique spoken language attributes"
 
     columns: 
-      - name: movie_id
-        description: "Unique identifier per movie"
+      - name: language_key
+        description: "Primary key for the language dimension table"
         data_tests:
           - not_null
+          - unique
       
       - name: spoken_language_english_name
         description: "English name of the spoken language"
         data_tests: 
           - not_null
-      
+
       - name: spoken_language_code
-        description: "Country code of the spoken language"
+        description: "ISO 639-1 language code"
         data_tests: 
           - not_null
-
-
-          
-
+          - unique
