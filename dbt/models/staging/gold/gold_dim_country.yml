@@ -1,0 +1,21 @@
+models:
+  - name: gold_dim_country
+    description: "Country dimension containing unique production country attributes"
+
+    columns:
+      - name: country_key
+        description: "Primary key for the country dimension table"
+        data_tests:
+          - not_null
+          - unique
+
+      - name: tmdb_country_code
+        description: "ISO country code from The Movie Database (TMDb)"
+        data_tests:
+          - not_null
+          - unique
+
+      - name: country_name
+        description: "Name of the production country"
+        data_tests:
+          - not_null

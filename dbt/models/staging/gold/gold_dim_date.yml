@@ -1,0 +1,31 @@
+models:
+  - name: gold_dim_date
+    description: "Date dimension containing one row per calendar date"
+
+    columns:
+      - name: date_key
+        description: "Primary key for the date dimension table in YYYYMMDD format"
+        data_tests:
+          - not_null
+          - unique
+
+      - name: full_date
+        description: "Calendar date"
+        data_tests:
+          - not_null
+          - unique
+
+      - name: year_number
+        description: "Calendar year"
+
+      - name: month_number
+        description: "Calendar month number"
+
+      - name: day_number
+        description: "Day of the month"
+
+      - name: month_name
+        description: "Calendar month name"
+
+      - name: year_month
+        description: "Year and month in YYYY-MM format"
