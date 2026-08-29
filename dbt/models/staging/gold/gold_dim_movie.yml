@@ -1,0 +1,49 @@
+models:
+  - name: gold_dim_movie
+    description: "Movie dimension containing one row per movie with core descriptive attributes"
+
+    columns:
+      - name: movie_key
+        description: "Primary key for the movie dimension table"
+        data_tests:
+          - not_null
+          - unique
+
+      - name: release_date_key
+        description: "Foreign key linking the movie to the release date dimension"
+        data_tests:
+          - not_null
+
+      - name: tmdb_movie_id
+        description: "Unique movie identifier from The Movie Database (TMDb)"
+        data_tests:
+          - not_null
+          - unique
+
+      - name: movie_title
+        description: "Movie title as stored in the source data"
+        data_tests:
+          - not_null
+
+      - name: original_title
+        description: "Original title of the movie"
+
+      - name: language_key
+        description: "Foreign key linking the movie to the language dimension"
+        data_tests:
+          - not_null
+
+      - name: release_date
+        description: "Release date for the movie"
+
+      - name: release_year
+        description: "Year extracted from the movie release date"
+
+      - name: runtime_minutes
+        description: "Runtime of the movie in minutes"
+
+      - name: original_language
+        description: "Primary language associated with the movie"
+
+      - name: overview
+        description: "Description or synopsis of the movie"

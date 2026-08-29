@@ -1,0 +1,21 @@
+models:
+  - name: gold_dim_production_company
+    description: "Production company dimension containing unique production company attributes"
+
+    columns:
+      - name: company_key
+        description: "Primary key for the production company dimension table"
+        data_tests:
+          - not_null
+          - unique
+
+      - name: tmdb_company_id
+        description: "Unique production company identifier from The Movie Database (TMDb)"
+        data_tests:
+          - not_null
+          - unique
+
+      - name: company_name
+        description: "Name of the production company"
+        data_tests:
+          - not_null
