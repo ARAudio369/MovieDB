@@ -1,0 +1,14 @@
+models:
+  - name: gold_bridge_movie_genre
+    description: "Bridge table linking movies to their associated genres"
+
+    columns:
+      - name: movie_key
+        description: "Foreign key linking to the movie dimension"
+        data_tests:
+          - not_null
+
+      - name: genre_key
+        description: "Foreign key linking to the genre dimension"
+        data_tests:
+          - not_null

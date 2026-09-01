@@ -1,0 +1,17 @@
+models:
+  - name: gold_bridge_movie_country
+    description: "Country dimension containing unique production country attributes"
+
+    columns:
+
+      - name: movie_key
+        description: "Primary key for the movie dimension table"
+        data_tests:
+          - not_null
+
+
+      - name: country_key
+        description: "Primary key for the country dimension table"
+        data_tests:
+          - not_null
+

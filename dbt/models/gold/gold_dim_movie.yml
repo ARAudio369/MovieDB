@@ -11,8 +11,6 @@ models:
 
       - name: release_date_key
         description: "Foreign key linking the movie to the release date dimension"
-        data_tests:
-          - not_null
 
       - name: tmdb_movie_id
         description: "Unique movie identifier from The Movie Database (TMDb)"

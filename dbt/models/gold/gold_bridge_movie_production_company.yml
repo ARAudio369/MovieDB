@@ -1,0 +1,14 @@
+models:
+  - name: gold_bridge_movie_production_company
+    description: "Bridge table linking movies to production companies"
+
+    columns:
+      - name: movie_key
+        description: "Foreign key linking to the movie dimension"
+        data_tests:
+          - not_null
+
+      - name: company_key
+        description: "Foreign key linking to the production company dimension"
+        data_tests:
+          - not_null
